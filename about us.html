@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - About Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6; /* Light background for the page */
+        }
+
+        /* Header with Logo and Navigation (Copied from welcome.html) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #82A405;
+            color: white;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+
+        /* Navigation (Copied from welcome.html) */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        /* About Us Hero Section */
+        .about-hero {
+            position: relative;
+            height: 300px;
+            background-image: url('mycl.jpg'); /* Placeholder image for hero */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .about-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for text readability */
+        }
+
+        .about-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .about-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            animation: fadeInDown 1s ease-out; /* Animation for heading */
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.3s forwards; /* Animation for paragraph */
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Main Content Sections */
+        .section-container {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        /* Mission & Vision Section */
+        .mission-vision {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-vision-item {
+            flex: 1 1 45%; /* Adjust for two columns */
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            animation: zoomIn 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+        .mission-vision-item:nth-child(1) { animation-delay: 0.1s; }
+        .mission-vision-item:nth-child(2) { animation-delay: 0.3s; }
+
+
+        .mission-vision-item i {
+            font-size: 3rem;
+            color: #82A405;
+            margin-bottom: 1rem;
+        }
+
+        .mission-vision-item h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .mission-vision-item p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        /* History of Us Section */
+        .history-section {
+            background-color: #e0f2f7; /* Light blue background */
+            padding: 4rem 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 4rem;
+            animation: slideInUp 1s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .history-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap; /* Allow tabs to wrap on smaller screens */
+        }
+
+        .tab-button {
+            background-color: #3498db9c;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            margin: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            white-space: nowrap; /* Prevent text wrapping inside button */
+        }
+
+        .tab-button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active {
+            background-color: #82A405; /* Active tab color */
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .history-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+            animation: fadeIn 0.6s ease-out; /* Animation for content change */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .history-content h3 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .history-content p {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .history-content ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            color: #555;
+        }
+        .history-content ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Our Values Section */
+        .values-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .value-card {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: zoomIn 0.8s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+        .value-card:nth-child(1) { animation-delay: 0.1s; }
+        .value-card:nth-child(2) { animation-delay: 0.2s; }
+        .value-card:nth-child(3) { animation-delay: 0.3s; }
+        .value-card:nth-child(4) { animation-delay: 0.4s; }
+
+
+        .value-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-card i {
+            font-size: 2.5rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .value-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .value-card p {
+            font-size: 0.95rem;
+            color: #666;
+        }
+
+        /* Call to Action Section */
+        .cta-about {
+            background-color: #82A405; /* Clinic's primary color */
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: slideInUp 1s ease-out forwards;
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        .cta-about h2 {
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-about p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-about .btn {
+            background-color: white;
+            color: #82A405;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+        }
+
+        .cta-about .btn:hover {
+            background-color: #f1c40f;
+            color: #2c3e50;
+            transform: translateY(-3px);
+        }
+
+        /* Footer (Copied from welcome.html) */
+        .stats {
+            background-color: rgba(89, 196, 27, 0.884);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .stat-item {
+            flex: 1 1 250px;
+        }
+
+        .stat-item h3 {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #f1c40f;
+        }
+
+        .stat-item p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-item ul {
+            list-style-type: none;
+        }
+
+        .stat-item ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #ecf0f1;
+        }
+        .stat-item ul li::before {
+            content: '>';
+            
+            margin-right: 8px;
+        }
+        .stat-item ul li a {
+            color: inherit; /* Inherit color from parent */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .stat-item ul li a:hover {
+            color: #f1c40f; /* Yellow on hover */
+        }
+
+        footer {
+            background-color: grey;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid grey;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Adjustments (Copied and adapted) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .about-hero {
+                height: 250px;
+            }
+
+            .about-hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-hero p {
+                font-size: 1rem;
+            }
+
+            .mission-vision-item {
+                flex: 1 1 100%; /* Stack items on small screens */
+            }
+
+            .history-tabs {
+                flex-direction: column; /* Stack buttons vertically */
+                align-items: center;
+            }
+
+            .tab-button {
+                width: 90%; /* Make buttons wider */
+            }
+
+            .values-section {
+                grid-template-columns: 1fr; /* Single column for small screens */
+            }
+
+            .stat-item {
+                text-align: center; /* Center content of each stat item */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kira Clinic Logo"> <div class="logo-text">
+                <h1>Kira Clinic</h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html"> Home</a></li>
+                <li><a href="welcome.html#services"> Services</a></li>
+                <li><a href="partnership.html"> Partnership</a></li>
+                <li><a href="our doctors.html"> Our Doctors</a></li>
+                <li><a href="about_us.html"> About</a></li> <li><a href="contact.html"> Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-hero">
+        <div class="about-hero-overlay"></div>
+        <div class="about-hero-content">
+            <h2>About Kira Clinic</h2>
+            <p>Your trusted partner in health, committed to excellence and compassionate care.</p>
+        </div>
+    </section>
+
+    <section class="section-container">
+        <div class="section-title">
+            <h2>Our Mission & Vision</h2>
+        </div>
+        <div class="mission-vision">
+            <div class="mission-vision-item">
+                <i class="fas fa-bullseye"></i>
+                <h3>Our Mission</h3>
+                <p>To provide accessible, high-quality, and patient-centered healthcare services to the community of Rwanda, fostering wellness and improving lives through comprehensive medical care.</p>
+            </div>
+            <div class="mission-vision-item">
+                <i class="fas fa-eye"></i>
+                <h3>Our Vision</h3>
+                <p>To be the leading healthcare provider in Rwanda, recognized for our innovative medical practices, compassionate approach, and unwavering commitment to community health and well-being.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container history-section">
+        <div class="section-title">
+            <h2>Our Journey: A History of Care</h2>
+        </div>
+
+        <div class="history-tabs">
+            <button class="tab-button active" data-tab="founding">Founding (2010)</button>
+            <button class="tab-button" data-tab="expansion">First Expansion (2015)</button>
+            <button class="tab-button" data-tab="innovation">Technological Innovation (2018)</button>
+            <button class="tab-button" data-tab="community">Community Outreach (2020)</button>
+            <button class="tab-button" data-tab="future">Looking Ahead (Present)</button>
+        </div>
+
+        <div class="history-content" id="historyContent">
+            </div>
+    </section>
+
+    <section class="section-container">
+        <div class="section-title">
+            <h2>Our Core Values</h2>
+        </div>
+        <div class="values-section">
+            <div class="value-card">
+                <i class="fas fa-heartbeat"></i>
+                <h3>Compassion</h3>
+                <p>We treat every patient with empathy, respect, and understanding, recognizing their unique needs.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-stethoscope"></i>
+                <h3>Excellence</h3>
+                <p>We are committed to delivering the highest standards of medical care, continuously learning and improving.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-users"></i>
+                <h3>Integrity</h3>
+                <p>We uphold the highest ethical standards, ensuring transparency, honesty, and trust in all our interactions.</p>
+            </div>
+            <div class="value-card">
+                <i class="fas fa-handshake"></i>
+                <h3>Collaboration</h3>
+                <p>We work as a cohesive team and partner with the community to achieve better health outcomes.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-container cta-about">
+        <h2>Experience the Kira Clinic Difference</h2>
+        <p>
+            We invite you to learn more about our services, meet our dedicated team, or schedule an appointment. Your health is our priority.
+        </p>
+        <a href="contact.html" class="btn">Contact Us Today</a>
+    </section>
+
+    <section class="stats">
+        <div class="stats-list">
+            <div class="stat-item">
+                <h3>KIRA CLINIC</h3>
+                <p>Rwanda Nyagatare district</p>
+                <p>Street KV 20 ST</p>
+                <br>
+                <p>Phone: +250787868888</p>
+                <p>Email:info@kiraclinic.com</p>
+            </div>
+            <div class="stat-item">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="welcome.html#services">Consultation</a></li>
+                    <li><a href="welcome.html#services">Hospital</a></li>
+                    <li><a href="welcome.html#services">Dentist</a></li>
+                    <li><a href="welcome.html#services">Vaccination</a></li>
+                </ul>
+            </div>
+            <div class="stat-item">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2022 Copyright. Kira Clinic, Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const historyContentDiv = document.getElementById('historyContent');
+            const tabButtons = document.querySelectorAll('.tab-button');
+
+            // Define history content for each tab
+            const historyData = {
+                founding: {
+                    title: "Founding (2010): A Vision for Health",
+                    text: "Kira Clinic was founded in 2010 by a group of passionate Rwandan doctors with a shared vision: to establish a healthcare facility that provides accessible, high-quality medical services to the community. Starting as a small general practice, our commitment to patient well-being quickly earned the trust of local families.",
+                    details: [
+                        "Opened its doors as a primary care clinic.",
+                        "Focused on general consultations and basic diagnostics.",
+                        "Built a strong foundation of community trust."
+                    ]
+                },
+                expansion: {
+                    title: "First Expansion (2015): Growing to Serve More",
+                    text: "By 2015, the demand for our services led to our first major expansion. We moved to a larger facility, allowing us to introduce new departments and accommodate a growing team of specialists. This period marked our transition from a clinic to a comprehensive healthcare center.",
+                    details: [
+                        "Relocated to a larger, modern facility.",
+                        "Introduced specialized departments like pediatrics and dentistry.",
+                        "Increased our medical staff to meet growing patient needs."
+                    ]
+                },
+                innovation: {
+                    title: "Technological Innovation (2018): Modernizing Healthcare",
+                    text: "In 2018, Kira Clinic embraced technological advancements to enhance patient care. We invested in state-of-the-art diagnostic equipment and implemented a digital patient record system, streamlining operations and improving diagnostic accuracy.",
+                    details: [
+                        "Acquired advanced imaging and laboratory equipment.",
+                        "Implemented electronic health records (EHR) for efficient data management.",
+                        "Launched telemedicine services for remote consultations."
+                    ]
+                },
+                community: {
+                    title: "Community Outreach (2020): Beyond Our Walls",
+                    text: "Recognizing the importance of community health, Kira Clinic launched several outreach programs starting in 2020. These initiatives focus on health education, preventive care, and free medical camps, reaching underserved populations across the region.",
+                    details: [
+                        "Established regular free health check-up camps.",
+                        "Conducted health awareness campaigns on various diseases.",
+                        "Partnered with local NGOs for community health initiatives."
+                    ]
+                },
+                future: {
+                    title: "Looking Ahead (Present): Continuous Growth",
+                    text: "Today, Kira Clinic continues to grow and evolve. We are constantly exploring new medical advancements, expanding our services, and strengthening our commitment to the health and well-being of every individual we serve. Our future is bright, and we look forward to many more years of dedicated service.",
+                    details: [
+                        "Planning for a new specialized surgical unit.",
+                        "Investing in continuous professional development for staff.",
+                        "Expanding our network of community health partners."
+                    ]
+                }
+            };
+
+            // Function to load content based on tab
+            function loadHistoryContent(tabName) {
+                const data = historyData[tabName];
+                if (data) {
+                    historyContentDiv.innerHTML = `
+                        <h3>${data.title}</h3>
+                        <p>${data.text}</p>
+                        <ul>
+                            ${data.details.map(item => `<li>${item}</li>`).join('')}
+                        </ul>
+                    `;
+                }
+            }
+
+            // Event listener for tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to the clicked button
+                    this.classList.add('active');
+                    // Load content for the corresponding tab
+                    loadHistoryContent(this.dataset.tab);
+                });
+            });
+
+            // Load initial content (Founding tab)
+            loadHistoryContent('founding');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - Our Partnerships</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* General Body Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6; /* Light background for the page */
+        }
+
+        /* Header with Logo and Navigation (Copied from welcome.html) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #03200a;
+            color: white;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+
+        
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #72b619;
+        }
+
+       
+        .partnership-hero {
+            position: relative;
+            height: 300px;
+            background-image: url('parternerslog.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .partnership-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); 
+        }
+
+        .partnership-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .partnership-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            animation: fadeInDown 1s ease-out; /* Animation for heading */
+        }
+
+        .partnership-hero p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.3s forwards; /* Animation for paragraph */
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Partnership Section */
+        .partnerships-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center; /* Centered title for this page */
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #15b923;
+            border-radius: 2px;
+        }
+
+        .partnerships-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Partners Grid */
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .partner-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Ensure cards have equal height */
+            opacity: 0; /* Start hidden for animation */
+            animation: fadeInScale 0.8s ease-out forwards; /* Animation for cards */
+        }
+
+        .partner-card:nth-child(1) { animation-delay: 0.1s; }
+        .partner-card:nth-child(2) { animation-delay: 0.2s; }
+        .partner-card:nth-child(3) { animation-delay: 0.3s; }
+        .partner-card:nth-child(4) { animation-delay: 0.4s; }
+        .partner-card:nth-child(5) { animation-delay: 0.5s; }
+        .partner-card:nth-child(6) { animation-delay: 0.6s; }
+        /* Add more delays for more cards if needed */
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px) scale(1.02); 
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); 
+        }
+
+        .partner-logo {
+            width: 120px;
+            height: 120px;
+            object-fit: contain; 
+            margin: 0 auto 1.5rem;
+            filter: grayscale(80%); 
+            transition: filter 0.3s ease;
+        }
+
+        .partner-card:hover .partner-logo {
+            filter: grayscale(0%);
+        }
+
+        .partner-card h3 {
+            font-size: 1.6rem;
+            color: #82A405;
+            margin-bottom: 0.8rem;
+        }
+
+        .partner-card p {
+            font-size: 0.95rem;
+            color: #666;
+            flex-grow: 1; 
+            margin-bottom: 1.5rem;
+        }
+
+        .partner-card .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block; 
+        }
+
+        .partner-card .btn:hover {
+            background-color: #2980b9;
+        }
+
+        .cta-partnership {
+            background-color: #e0f2f7;
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: slideInUp 1s ease-out forwards; 
+            opacity: 0;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-partnership h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-partnership p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-partnership .btn {
+            background-color: #0dc225;
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-partnership .btn:hover {
+            background-color: #0a9d1d;
+            transform: translateY(-3px); 
+        }
+
+        
+        .stats {
+            background-color: rgb(11, 138, 127);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .stat-item {
+            flex: 1 1 250px;
+        }
+
+        .stat-item h3 {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: white;
+        }
+
+        .stat-item p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-item ul {
+            list-style-type: none;
+        }
+
+        .stat-item ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #ecf0f1;
+        }
+        .stat-item ul li::before {
+            content: '>';
+        
+            margin-right: 8px;
+        }
+        .stat-item ul li a {
+            color: inherit; 
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .stat-item ul li a:hover {
+            color: #34382f;
+        }
+
+        footer {
+            background-color: rgb(15, 81, 167);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+          
+            margin-top: 1rem;
+        }
+
+        
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .partnership-hero {
+                height: 250px;
+            }
+
+            .partnership-hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .partnership-hero p {
+                font-size: 1rem;
+            }
+
+            .partners-grid {
+                grid-template-columns: 1fr; 
+            }
+
+            .stat-item {
+                text-align: center; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kira Clinic Logo"> <div class="logo-text">
+                <h1>Kira Clinic</h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html"> Home</a></li>
+                <li><a href="welcome.html#services"> Services</a></li>
+                <li><a href="partnership.html"> Partnership</a></li> <li><a href="ourdoctors.html"> Our Doctors</a></li>
+                <li><a href="welcome.html#about"> About</a></li>
+                <li><a href="contact.html"> Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="partnership-hero">
+        <div class="partnership-hero-overlay"></div>
+        <div class="partnership-hero-content">
+            <h2>Our Valued Partnerships</h2>
+            <p>Collaborating for a healthier future. We are proud to work with leading organizations.</p>
+        </div>
+    </section>
+
+    <section class="partnerships-section">
+        <div class="section-title">
+            <h2>Our Esteemed Partners</h2>
+        </div>
+
+        <p class="partnerships-intro">
+            At Kira Clinic, we believe in the power of collaboration to extend our reach and enhance the quality of healthcare. We partner with a diverse range of organizations, including medical suppliers, research institutions, community health programs, and technology providers, to bring the best services to our patients.
+        </p>
+
+        <div class="partners-grid">
+            <div class="partner-card">
+                <img src="kfh.jfif" alt="Partner A Logo" class="partner-logo">
+                <h3>Global Health Solutions</h3>
+                <p>Leading provider of medical equipment and pharmaceuticals, ensuring we have the best tools for patient care.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="partner-card">
+                <img src="mua.jfif" alt="Partner B Logo" class="partner-logo">
+                <h3>Innovate MedTech</h3>
+                <p>Specializing in cutting-edge diagnostic technologies, helping us provide accurate and timely diagnoses.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="partner-card">
+                <img src="sanlam.png" alt="Partner C Logo" class="partner-logo">
+                <h3>Community Care Network</h3>
+                <p>Working together to offer free health screenings and educational workshops in underserved communities.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="partner-card">
+                <img src="rep of rwa.jfif" alt="Partner D Logo" class="partner-logo">
+                <h3>Pharma Innovations</h3>
+                <p>A pharmaceutical company dedicated to research and development of new treatments and medications.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="partner-card">
+                <img src="part.png" alt="Partner E Logo" class="partner-logo">
+                <h3>Digital Health Systems</h3>
+                <p>Our technology partner, providing secure and efficient patient management and telemedicine platforms.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+
+            <div class="partner-card">
+                <img src="part.jfif" alt="Partner F Logo" class="partner-logo">
+                <h3>Medical Research Institute</h3>
+                <p>Collaborating on clinical trials and studies to advance medical knowledge and patient outcomes.</p>
+                <a href="#" class="btn">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-partnership">
+        <h2>Interested in Partnering with Kira Clinic?</h2>
+        <p>
+            We are always looking for new opportunities to collaborate with organizations that share our commitment to quality healthcare. If you believe your mission aligns with ours, we invite you to connect with us.
+        </p>
+        <a href="contact.html" class="btn">Contact Our Partnership Team</a>
+    </section>
+
+    <section class="stats">
+        <div class="stats-list">
+            <div class="stat-item">
+                <h3>KIRA CLINIC</h3>
+                <p>Rwanda Nyagatare district</p>
+                <p>Street KV 20 ST</p>
+                <br>
+                <p>Phone: +250787868888</p>
+                <p>Email:info@kiraclinic.com</p>
+            </div>
+            <div class="stat-item">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="welcome.html#services">Consultation</a></li>
+                    <li><a href="welcome.html#services">Hospital</a></li>
+                    <li><a href="welcome.html#services">Dentist</a></li>
+                    <li><a href="welcome.html#services">Vaccination</a></li>
+                </ul>
+            </div>
+            <div class="stat-item">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2022 Copyright. Kira Clinic, Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - Our Doctors</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+      
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f7f6; 
+        }
+
+        /* Header with Logo and Navigation (Copied from welcome.html) */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #82A405;
+            color: white;
+            position: relative;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+
+        /* Navigation (Copied from welcome.html) */
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        /* Doctors Hero Section */
+        .doctors-hero {
+            position: relative;
+            height: 600px;
+            background-image: url('doc.jpg'); /* Placeholder image for hero */
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .doctors-hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Darker overlay for text readability */
+        }
+
+        .doctors-hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .doctors-hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            animation: fadeInDown 1s ease-out; /* Animation for heading */
+        }
+
+        .doctors-hero p {
+            font-size: 1.2rem;
+            animation: fadeInUp 1s ease-out 0.3s forwards; /* Animation for paragraph */
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        /* Keyframe Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Doctors Section */
+        .doctors-section {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center; /* Centered title for this page */
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: #3498db;
+            border-radius: 2px;
+        }
+
+        .doctors-intro {
+            text-align: center;
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+            color: #555;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Doctors Grid */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive grid */
+            gap: 2rem;
+            justify-items: center;
+        }
+
+        .doctor-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%; /* Ensure cards have equal height */
+            opacity: 0; /* Start hidden for animation */
+            animation: fadeInScale 0.8s ease-out forwards; /* Animation for cards */
+        }
+
+        .doctor-card:nth-child(1) { animation-delay: 0.1s; }
+        .doctor-card:nth-child(2) { animation-delay: 0.2s; }
+        .doctor-card:nth-child(3) { animation-delay: 0.3s; }
+        .doctor-card:nth-child(4) { animation-delay: 0.4s; }
+        .doctor-card:nth-child(5) { animation-delay: 0.5s; }
+        .doctor-card:nth-child(6) { animation-delay: 0.6s; }
+        /* Add more delays for more cards if needed */
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .doctor-card:hover {
+            transform: translateY(-10px) scale(1.02); /* Lift and slightly enlarge on hover */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15); /* More prominent shadow on hover */
+        }
+
+        .doctor-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%; /* Circular photo */
+            object-fit: cover;
+            margin: 0 auto 1.5rem;
+            border: 4px solid #82A405; /* Border with clinic's primary color */
+            transition: border-color 0.3s ease;
+        }
+
+        .doctor-card:hover .doctor-photo {
+            border-color: #3498db; /* Change border color on hover */
+        }
+
+        .doctor-card h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .doctor-card .specialization {
+            font-size: 1.1rem;
+            color: #82A405; /* Clinic's primary color */
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        .doctor-card p {
+            font-size: 0.95rem;
+            color: #666;
+            flex-grow: 1; /* Allows description to take available space */
+            margin-bottom: 1.5rem;
+        }
+
+        .doctor-card .btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.6rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: inline-block; /* Make it a block element for padding */
+        }
+
+        .doctor-card .btn:hover {
+            background-color: #2980b9;
+        }
+
+        /* Call to Action Section */
+        .cta-doctors {
+            background-color: #e0f2f7; /* Light blue background */
+            padding: 4rem 2rem;
+            text-align: center;
+            margin-top: 4rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            animation: slideInUp 1s ease-out forwards; /* Animation for CTA */
+            opacity: 0; /* Start hidden for animation */
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-doctors h2 {
+            font-size: 2.2rem;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-doctors p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-doctors .btn {
+            background-color: #0dc225; /* Green button */
+            color: white;
+            padding: 1rem 2.5rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-doctors .btn:hover {
+            background-color: #0a9d1d;
+            transform: translateY(-3px); /* Subtle lift on hover */
+        }
+
+        /* Footer (Copied from welcome.html) */
+        .stats {
+            background-color: rgb(47, 46, 46);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .stat-item {
+            flex: 1 1 250px;
+        }
+
+        .stat-item h3 {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: #f1c40f;
+        }
+
+        .stat-item p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-item ul {
+            list-style-type: none;
+        }
+
+        .stat-item ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #ecf0f1;
+        }
+        .stat-item ul li::before {
+            content: '>';
+            color: #3498db;
+            margin-right: 8px;
+        }
+        .stat-item ul li a {
+            color: inherit; /* Inherit color from parent */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .stat-item ul li a:hover {
+            color: #f1c40f; /* Yellow on hover */
+        }
+
+        footer {
+            background-color: gray;
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            border-top: 1px solid gray;
+            margin-top: 1rem;
+        }
+
+        /* Responsive Adjustments (Copied and adapted from welcome.html) */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .doctors-hero {
+                height: 250px;
+            }
+
+            .doctors-hero h2 {
+                font-size: 2.2rem;
+            }
+
+            .doctors-hero p {
+                font-size: 1rem;
+            }
+
+            .doctors-grid {
+                grid-template-columns: 1fr; /* Single column for small screens */
+            }
+
+            .stat-item {
+                text-align: center; /* Center content of each stat item */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kira Clinic Logo"> <div class="logo-text">
+                <h1>Kira Clinic</h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="welcome.html"> Home</a></li>
+                <li><a href="welcome.html#services"> Services</a></li>
+                <li><a href="partnership.html"> Partnership</a></li>
+                <li><a href="our_doctors.html"> Our Doctors</a></li> <li><a href="about us.html"> About</a></li>
+                <li><a href="contact.html"> Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="doctors-hero">
+        <div class="doctors-hero-overlay"></div>
+        <div class="doctors-hero-content">
+            <h2>Meet Our Expert Doctors</h2>
+            <p>Our dedicated team of medical professionals is committed to providing you with the highest quality care.</p>
+        </div>
+    </section>
+
+    <section class="doctors-section">
+        <div class="section-title">
+            <h2>Our Medical Team</h2>
+        </div>
+
+        <p class="doctors-intro">
+            Kira Clinic is proud to have a team of highly qualified and compassionate doctors. Each member brings extensive experience and expertise in their respective fields, ensuring comprehensive and personalized treatment for every patient.
+        </p>
+
+        <div class="doctors-grid">
+            <div class="doctor-card">
+                <img src="doc6.jfif" alt="Dr. Jane Smith" class="doctor-photo">
+                <h3>Dr. Jane Smith</h3>
+                <p class="specialization">General Practitioner</p>
+                <p>Dr. Smith has over 15 years of experience in general medicine, focusing on family health and preventive care. She is known for her empathetic approach.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="dov2.jfif" alt="Dr. Alex Brown" class="doctor-photo">
+                <h3>Dr. Alex Brown</h3>
+                <p class="specialization">Pediatrician</p>
+                <p>Dr. Brown specializes in pediatric care, providing expert medical attention to children from infancy through adolescence. He makes clinic visits fun for kids.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="doc5.jfif" alt="Dr. Emily Lee" class="doctor-photo">
+                <h3>Dr. Emily Lee</h3>
+                <p class="specialization">Dermatologist</p>
+                <p>With a focus on skin health, Dr. Lee offers comprehensive dermatological services, from acne treatment to skin cancer screenings.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="doc4.avif" alt="Dr. Carlos Garcia" class="doctor-photo">
+                <h3>Dr. Carlos Garcia</h3>
+                <p class="specialization">Cardiologist</p>
+                <p>Dr. Garcia is a board-certified cardiologist dedicated to diagnosing and treating heart conditions, promoting cardiovascular wellness.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="doc3.jfif" alt="Dr. Sarah Chen" class="doctor-photo">
+                <h3>Dr. Sarah Chen</h3>
+                <p class="specialization">Orthopedic Surgeon</p>
+                <p>Specializing in musculoskeletal health, Dr. Chen performs advanced orthopedic surgeries and provides rehabilitation guidance.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+
+            <div class="doctor-card">
+                <img src="doc1.jfif" alt="Dr. Rahul Patel" class="doctor-photo">
+                <h3>Dr. Rahul Patel</h3>
+                <p class="specialization">Ophthalmologist</p>
+                <p>Dr. Patel is an eye specialist providing comprehensive eye care, including vision correction, disease management, and surgical interventions.</p>
+                <a href="#" class="btn">View Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-doctors">
+        <h2>Ready to Book an Appointment?</h2>
+        <p>
+            Our medical team is here to help you. Schedule a consultation with one of our expert doctors today.
+        </p>
+        <a href="contact.html" class="btn">Book an Appointment</a>
+    </section>
+
+    <section class="stats">
+        <div class="stats-list">
+            <div class="stat-item">
+                <h3>KIRA CLINIC</h3>
+                <p>Rwanda Nyagatare district</p>
+                <p>Street KV 20 ST</p>
+                <br>
+                <p>Phone: +250787868888</p>
+                <p>Email:info@kiraclinic.com</p>
+            </div>
+            <div class="stat-item">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="welcome.html#services">Consultation</a></li>
+                    <li><a href="welcome.html#services">Hospital</a></li>
+                    <li><a href="welcome.html#services">Dentist</a></li>
+                    <li><a href="welcome.html#services">Vaccination</a></li>
+                </ul>
+            </div>
+            <div class="stat-item">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                    <li><a href="#">LinkedIn</a></li>
+                    <li><a href="#">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2022 Copyright. Kira Clinic, Ltd. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Kira Clinic</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
+        
+        /* Header with Logo */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #82A405;
+            color: white;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: #82A405;
+            padding: 1rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+        
+        nav li {
+            margin: 0 1.5rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+        
+        nav a:hover {
+            color: #f1c40f;
+        }
+        
+        /* Contact Section */
+        .contact-container {
+            max-width: 1000px;
+            margin: 3rem auto;
+            padding: 0 2rem;
+            background-color: rgba(120, 117, 117, 0.567);
+            
+        }
+        
+        .contact-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-header h1 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 3rem;
+            
+        }
+        
+        .info-item {
+            flex: 1;
+            min-width: 250px;
+            padding: 1.5rem;
+            background-color: gray;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .info-item h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+        
+        .info-item p {
+            color: #555;
+        }
+        
+        .contact-divider {
+            border: none;
+            height: 1px;
+            background-color: #ddd;
+            margin: 3rem 0;
+        }
+        
+        .contact-form-section {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-form-section h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-form-section p {
+            color: #555;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        
+        .form-group input, 
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        .submit-btn {
+            background-color: #82A405;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .submit-btn:hover {
+            background-color: #6d8a04;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: rgb(47, 46, 46);
+            color: white;
+            padding: 3rem 2rem 1rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 2rem;
+            background-color: rgb(47, 46, 46);
+        }
+        
+        .footer-column {
+            flex: 1 1 250px;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            color: #f1c40f;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        
+        .footer-column ul {
+            list-style-type: none;
+        }
+        
+        .footer-column li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: #f1c40f;
+        }
+        
+        .footer-column p {
+            margin-bottom: 1rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 1.5rem 0 0;
+            border-top: 1px solid gray;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+            
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header with Logo -->
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kira Clinic Logo">
+            <div class="logo-text">
+                <h1>Kira Clinic</h1>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="welcome.html">Home</a></li>
+            <li><a href="welcome.html#services">Services</a></li>
+            <li><a href="paternership.html">Partnership</a></li>
+            <li><a href="ourdoctors.html">Our Doctors</a></li>
+            <li><a href="about us.html">About</a></li>
+            <li><a href="contact.html">Contact us</a></li>
+        </ul>
+    </nav>
+    
+    <!-- Contact Section -->
+   <section style="background-color: black;">
+     <div class="contact-container">
+        <div class="contact-header">
+            <h1 style="color: white;">Contact us</h1>
+        </div>
+        
+        <div class="contact-info">
+            <div class="info-item">
+                
+                <h3 style="color: white;">Phone</h3>
+                <p style="color: white;">+250 788 888 888</p>
+               >
+            </div>
+            <div class="info-item">
+                <h3 style="color: white;">Email</h3>
+                <p style="color: white;">info@kiraclinic.com</p>
+            </div>
+            <div class="info-item">
+                <h3 style="color: white;">Location</h3>
+                <p style="color: white;">Nyugatare District</p>
+            </div>
+        </div>
+         <hr class="contact-divider" style="background-color: black;">
+   </section>
+        
+       
+        
+        <div class="contact-form-section">
+            <h2>Love to hear from you,</h2>
+            <p style="color: #82A405; font-size: larger; font-weight: bold;">Let's get in touch!</p>
+            
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Your name:</label>
+                    <input type="text" id="name" placeholder="Type your full name">
+                </div>
+                <div class="form-group">
+                    <label for="email">Your email:</label>
+                    <input type="email" id="email" placeholder="Type your email">
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject:</label>
+                    <input type="text" id="subject" placeholder="Type subject">
+                </div>
+                <div class="form-group">
+                    <label for="message">Your message:</label>
+                    <textarea id="message" placeholder="Write your message"></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Send message</button>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>KIRA CLINIC</h3>
+                <p>location: Nyagatare District</p>
+                <p>Phone: +359 797 868 888</p>
+                <p>Email: info@kiraclinic.com</p>
+            </div>
+            <div class="footer-column">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#">> Consultation</a></li>
+                    <li><a href="#">> Hospital</a></li>
+                    <li><a href="#">> Dental</a></li>
+                    <li><a href="#">> Consultation</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#">> Facebook</a></li>
+                    <li><a href="#">> Twitter</a></li>
+                    <li><a href="#">> LinkedIn</a></li>
+                    <li><a href="#">> YouTube</a></li>
+                </ul>
+            </div>
+        </div>
+       
+    </footer>
+    <footer style="background-color: gray;">
+         <div class="copyright" style="background-color: gray;">
+            <p>&copy; www.Conyerset.ens.ctinic.ua</p>
+        </div>
+    </footer>
+</body>
+</html>

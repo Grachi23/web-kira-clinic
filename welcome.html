@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Clinic - Quality Healthcare Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            
+        }
+
+    
+        header {
+            display: flex;
+            justify-content: space-between; 
+            align-items: center;
+            padding: 1rem 2rem;
+            background-color: #a0ca09;
+            color: white;
+            position: relative; 
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .logo-text h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.2rem;
+            color: white;
+        }
+
+        .logo-text p {
+            font-size: 0.9rem;
+            color: #ecf0f1;
+        }
+
+        nav ul {
+            display: flex;
+            list-style-type: none;
+            flex-wrap: wrap;
+        }
+
+        nav li {
+            margin: 0 1rem; 
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #f1c40f;
+        }
+
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: url('Gemini_Generated_Image_lzq65dlzq65dlzq6.png'); 
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+
+        .btn-container {
+            display: flex; 
+            justify-content: center;
+            gap: 1rem; 
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: darkgreen;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn2 {
+            display: inline-block;
+            background-color: #82A405;
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #6a8804;
+        }
+        .btn2:hover {
+            background-color: #6a8804; 
+        }
+
+        .services-section {
+            padding: 3rem 2rem;
+            background-color: white;
+        }
+
+        .section-title {
+            text-align: left; 
+            margin-bottom: 3rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #2c3e50;
+            
+             text-align: center;
+        
+        }
+
+        .section-title h2::after {
+            content: '';
+            
+            bottom: 0;
+            left: 0; 
+            width: 80px;
+            height: 3px;
+            background-color: #3498db;
+            
+        }
+      
+
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem; 
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-item {
+            display: flex; 
+            align-items: center;
+            gap: 2rem;
+            padding: 1.5rem;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .service-item:nth-child(even) { 
+            flex-direction: row-reverse;
+        }
+
+        .service-item img {
+            width: 300px;
+            height: 200px; 
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .service-content {
+            flex: 1; 
+        }
+
+        .service-content h3 {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 0.8rem;
+        }
+
+        .service-content p {
+            font-size: 1rem;
+            color: #555;
+        }
+
+        
+        .stats {
+            background-color:yellowgreen;
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center; 
+        }
+
+        .stats h2 {
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .stats-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+            max-width: 1000px; 
+            margin: 0 auto;
+            text-align: left; 
+        }
+
+        .stat-item {
+            flex: 1 1 250px; 
+        }
+
+        .stat-item h3 {
+            display: block;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: white; 
+        }
+
+        .stat-item p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .stat-item ul {
+            list-style-type: none; 
+        }
+
+        .stat-item ul li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+            color: #ecf0f1;
+        }
+        .stat-item ul li::before {
+            content: '>';
+            color:white; 
+            margin-right: 8px;
+        }
+
+
+       
+        footer {
+            background-color: rgba(49, 44, 44, 0.623);
+            color: white;
+            padding: 1.5rem 2rem;
+            text-align: center;
+        }
+
+        .copyright {
+            padding-top: 1.5rem;
+            margin-top: 1rem;
+            background-color: gray;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .logo {
+                margin-bottom: 1rem;
+                justify-content: center;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .hero {
+                height: 400px;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .service-item {
+                flex-direction: column; 
+                text-align: center;
+            }
+
+            .service-item:nth-child(even) {
+                flex-direction: column; 
+            }
+
+            .service-item img {
+                width: 100%; 
+                height: auto;
+            }
+
+            .stats-list {
+                flex-direction: column;
+                align-items: center;
+                text-align: center; 
+            }
+        }
+        #moll{
+            color: #11b126;
+            margin-bottom: 1px;
+          font-size: 1.8rem; 
+            margin-bottom: 0; 
+            display: inline-block;
+            padding: 0;
+        }
+        #mollo{
+             color: #82A405; 
+            font-size: 1.8rem; 
+            margin-top: 0; 
+            margin-left: 20px; 
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Kira Clinic Logo">
+            <div class="logo-text">
+                <h1>Kira Clinic</h1>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home"> Home</a></li>
+                <li><a href="#services"> Services</a></li>
+                <li><a href="paternership.html"> Partnership</a></li>
+                <li><a href="ourdoctors.html"> Our Doctors</a></li>
+                <li><a href="about us.html"> About</a></li>
+                <li><a href="contact.html"> Contact us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h2>Welcome to Kira Clinic</h2>
+            <p>We are clinic that offers Consultation and treat various sickness</p>
+            <div class="btn-container">
+                <a href="" class="btn" style="text-decoration: none; color: white;">Get Started</a>
+                <a href="" class="btn2" style="text-decoration: none; color: white;">Contact Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services-section" id="services">
+        <div class="section-title">
+            <h2 class="kimi">Our Services</h2>
+        </div>
+
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="dov2.jfif" alt="Treatment for illness">
+                <div class="service-content">
+                    <h3 id="moll"> &nbsp;&nbsp;Treatment for <br>
+                        <span id="mollo"> illness</span>
+                    </h3>
+                    
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae semper nunc vitae lectus. Phasellus tempor incididunt ut labore et dolore magna aliquip ex ea commodo consequat erat volutpat. Mercure pretium ante.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="doc4.avif" alt="Basic Laboratory">
+                <div class="service-content">
+                    <h3 id="moll"> &nbsp;&nbsp;Basic</h3><br>
+                    <h3 id="mollo">Laboratory</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae semper nunc vitae lectus. Phasellus tempor incididunt ut labore et dolore magna aliquip ex ea commodo consequat erat volutpat. Mercure pretium ante.</p>
+                </div>
+            </div>
+
+            <div class="service-item">
+                <img src="doc1.jfif" alt="Vaccinations for all">
+                <div class="service-content">
+                    <h3 id="mollo">Vaccinations</h3><br>
+                    <h3 id="moll"> &nbsp; &nbsp;for all</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vitae semper nunc vitae lectus. Phasellus tempor incididunt ut labore et dolore magna aliquip ex ea commodo consequat erat volutpat. Mercure pretium ante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-list">
+            <div class="stat-item">
+                <h3>KIRA CLINIC</h3>
+                <p>Rwanda Nyagatare district</p>
+                <p>Street KV 20 ST</p>
+                <br>
+                <p>Phone: +250787868888</p>
+                <p>Email:info@kiraclinic.com</p>
+            </div>
+            <div class="stat-item">
+                <h3>Our Services</h3>
+                <ul>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">Consultation</a></li>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">Hospital</a></li>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">Dentist</a></li>
+                    <li><a href="#"  style="color: #ecf0f1; text-decoration: none;">Vaccination</a></li>
+                </ul>
+            </div>
+            <div class="stat-item">
+                <h3>Follow us</h3>
+                <ul>
+                    <li><a href="#" style="color: #ecf0f1;  text-decoration: none;">Facebook</a></li>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">Twitter</a></li>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">LinkedIn</a></li>
+                    <li><a href="#"  style="color: #ecf0f1;  text-decoration: none;">Youtube</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="copyright">
+            <p>&copy; 2022 Copyright. Kira Clinic, Ltd.</p>
+        </div>
+    </footer>
+</body>
+</html>

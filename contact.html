@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us - KIRA CLINIC</title>
+    <link rel="stylesheet" href="contact.css">
+    <style>
+        
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #004d00;
+}
+
+header {
+  background-color: #004d00;
+  color: white;
+  padding: 1em 0;
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10%;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5em;
+}
+
+.logo img {
+  height: 40px;
+  width: 40px;
+  margin-right: 10px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.header {
+  background-color: #e6ffe6;
+  padding: 2em 10%;
+  text-align: center;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  margin-top: 1em;
+}
+
+.info-box {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.form-section {
+  background: #ffffff;
+  padding: 3em 10%;
+  text-align: center;
+}
+
+.form-group {
+  margin-bottom: 1em;
+  text-align: left;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 0.75em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #008000;
+  color: white;
+  border: none;
+  padding: 0.75em 1.5em;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #006400;
+}
+
+footer {
+  background-color: #004d00;
+  color: white;
+  padding: 2em 10%;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer-box h4 {
+  margin-bottom: 10px;
+}
+
+.footer-box ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-box ul li {
+  margin-bottom: 5px;
+}
+
+.footer-box a {
+  color: white;
+  text-decoration: none;
+}
+
+.footer-box a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  text-align: center;
+  margin-top: 1em;
+  font-size: 0.9em;
+  color: #cceccc;
+}
+
+    </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <div class="logo"> <img src="kirac.png" alt="">Kira Clinic</div>
+      <nav>
+        <ul>
+          <li><a href="welcome.html">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Departments</a></li>
+          <li><a href="#">Our Doctors</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+    <div class="header">
+        <h1>Contact us</h1>
+        <div class="contact-info">
+            <div class="info-box">
+                <span>📞</span>
+                <div>
+                    <strong>Phone</strong>
+                    <p>+250 780000000</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <span>✉️</span>
+                <div>
+                    <strong>Email</strong>
+                    <p>info@kiraclinic.com</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <span>📍</span>
+                <div>
+                    <strong>Location</strong>
+                    <p>Nyagatare District</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-section">
+        <h2>Love to hear from you,</h2>
+        <p class="subtitle">Let's get in touch!</p>
+        <form>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Your names</label>
+                    <input type="text" placeholder="Type your full names">
+                </div>
+                <div class="form-group">
+                    <label>Your email</label>
+                    <input type="email" placeholder="Type your email">
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Subject</label>
+                <input type="text" placeholder="Type subject">
+            </div>
+            <div class="form-group">
+                <label>Your message</label>
+                <textarea placeholder="Type your message"></textarea>
+            </div>
+            <button type="submit">Send message</button>
+        </form>
+    </div>
+   
+  <footer>
+    <div class="footer-content">
+      <div class="footer-box">
+        <h4>KIRA CLINIC</h4>
+        <p>Rwanda. Nyagatare District <br>Street: KV 20 ST <br><br>Phone: 250 787 888 888 <br>Email: info@kiraclinic.com</p>
+      </div>
+      <div class="footer-box">
+        <h4>Our Services</h4>
+        <ul>
+          <li>> Consultation</li>
+          <li>> Hospital</li>
+
+
+
+          <li>> Dentist</li>
+          <li>> Consulitation</li>
+        </ul>
+      </div>
+      <div class="footer-box">
+        <h4>Follow us</h4>
+        <ul>
+          <li><a href="">Facebook</a></li>
+          <li><a href="">Twitter</a></li>
+          <li><a href="">Instagram</a></li>
+          <li><a href="">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="copyright">© 2025 Copyright Kira Clinic, Ltd</p>
+  </footer>
+</body>
+</html>
